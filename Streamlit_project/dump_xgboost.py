@@ -91,4 +91,4 @@ xgb_grid = RandomizedSearchCV(
 #dump 
 xgb_grid.fit(X, y)
 best_model = xgb_grid.best_estimator_
-joblib.dump(best_model, "C:/DL07_Do_An/Streamlit_project/models/xgboost.pkl") 
+joblib.dump(best_model, "Streamlit_project/models/xgboost.pkl") 
