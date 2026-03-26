@@ -289,7 +289,7 @@ with tab2:
     }
 
     df = pd.DataFrame([input_data])
-    scaler = joblib.load('C:/DL07_Do_An/Streamlit_project/models/scaler.pkl') # Chỗ này bạn sửa lại đường dẫn để chạy 
+    scaler = joblib.load('Streamlit_project/models/scaler.pkl') # Chỗ này bạn sửa lại đường dẫn để chạy 
     #Scaling 
     num_cols = ['dien_tich_dat','so_phong_ngu','so_phong_ve_sinh','tong_so_tang', 'gia_m2_tham_khao', 'chieu_ngang']
     df[num_cols] = scaler.transform(df[num_cols])
@@ -298,7 +298,7 @@ with tab2:
     #-------------------------------------------------------------------------
     st.markdown("#### Anomoly Detector") 
 
-    best_model = joblib.load('C:/DL07_Do_An/Streamlit_project/models/xgboost.pkl') # Chỗ này bạn sửa lại đường dẫn để chạy 
+    best_model = joblib.load('Streamlit_project/models/xgboost.pkl') # Chỗ này bạn sửa lại đường dẫn để chạy 
     y_pred = np.expm1(best_model.predict(df)[0])
     gia_ban_du_kien = st.number_input("Giá bán dự kiến của bạn (đơn vị: đồng)")
 
@@ -309,7 +309,7 @@ with tab2:
             st.error(f"Bạn chưa nhập đầy đủ các trường: {', '.join(missing_fields)}")
             st.stop()  # ❗ dừng luôn, không chạy model
 
-        anomaly_detector = joblib.load('C:/DL07_Do_An/Streamlit_project/models/anomaly_detector.pkl')
+        anomaly_detector = joblib.load('Streamlit_project/models/anomaly_detector.pkl')
         df_input = df.iloc[[0]]
 
         result = anomaly_detector.predict_one(
