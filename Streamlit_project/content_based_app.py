@@ -341,12 +341,12 @@ with tab2:
 
 with tab3:
     st.subheader("Visualization")
-    st.image("images/bang_thong_ke_processing.png", caption="Bảng thống kê tiền xử lý", use_container_width=True)
-    st.image("images/phan_phoi_gia.png", caption="Phân phối giá", use_container_width=True)
+    st.image("Streamlit_project/images/bang_thong_ke_processing.png", caption="Bảng thống kê tiền xử lý", use_container_width=True)
+    st.image("Streamlit_project/images/phan_phoi_gia.png", caption="Phân phối giá", use_container_width=True)
     col1, col2 = st.columns(2)
     with col1:
-        st.image("images/top_10_features.png", caption="Top 10 Features", use_container_width=True)
+        st.image("Streamlit_project/images/top_10_features.png", caption="Top 10 Features", use_container_width=True)
     with col2:
-        st.image("images/predicted_and_actual.png", caption="Predicted vs Actual Values", use_container_width=True)
+        st.image("Streamlit_project/images/predicted_and_actual.png", caption="Predicted vs Actual Values", use_container_width=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
