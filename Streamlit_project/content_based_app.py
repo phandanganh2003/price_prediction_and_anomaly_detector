@@ -307,27 +307,27 @@ with tab2:
     if st.button("Check Anomaly"):
         if missing_fields:
             st.error(f"Bạn chưa nhập đầy đủ các trường: {', '.join(missing_fields)}")
-            st.stop()  # ❗ dừng luôn, không chạy model
+        else:
 
-        anomaly_detector = joblib.load('Streamlit_project/models/anomaly_detector.pkl')
-        df_input = df.iloc[[0]]
-
-        result = anomaly_detector.predict_one(
-            x_input=df_input,
-            actual_price=gia_ban_du_kien,
-            predicted_price=y_pred
-        )
-
-        is_anomaly = bool(result["Composite_Score"] >= anomaly_detector.threshold_)
-        st.write("Predicted price:", result["Gia_du_doan_VND"])
-        st.write("Actual price:", result["Gia_rao_ban_VND"])
-        st.write("Residual score:", result["S_Resid"])
-        st.write("Min-Max score:", result["S_MinMax"])
-        st.write("Percentile score:", result["S_Percentile"])
-        st.write("Isolation score:", result["S_ML"])
-        st.write(f"Threshold (percentile = {anomaly_detector.default_percentile_}):", anomaly_detector.threshold_)
-        st.write("Anomaly score:", result["Composite_Score"])
-        st.write("Bất thường:", bool(is_anomaly))
+            anomaly_detector = joblib.load('Streamlit_project/models/anomaly_detector.pkl')
+            df_input = df.iloc[[0]]
+    
+            result = anomaly_detector.predict_one(
+                x_input=df_input,
+                actual_price=gia_ban_du_kien,
+                predicted_price=y_pred
+            )
+    
+            is_anomaly = bool(result["Composite_Score"] >= anomaly_detector.threshold_)
+            st.write("Predicted price:", result["Gia_du_doan_VND"])
+            st.write("Actual price:", result["Gia_rao_ban_VND"])
+            st.write("Residual score:", result["S_Resid"])
+            st.write("Min-Max score:", result["S_MinMax"])
+            st.write("Percentile score:", result["S_Percentile"])
+            st.write("Isolation score:", result["S_ML"])
+            st.write(f"Threshold (percentile = {anomaly_detector.default_percentile_}):", anomaly_detector.threshold_)
+            st.write("Anomaly score:", result["Composite_Score"])
+            st.write("Bất thường:", bool(is_anomaly))
 
     st.markdown("---")
     st.markdown("#### Price prediction") 
@@ -336,8 +336,8 @@ with tab2:
         if missing_fields:
             st.error(f"Bạn chưa nhập đầy đủ các trường: {', '.join(missing_fields)}")
             st.stop()  # ❗ dừng luôn, không chạy model
-
-        st.write("*Predicted price:*", y_pred)
+        else:
+            st.write("*Predicted price:*", y_pred)
 
     st.markdown("---")
     st.write("**Lưu ý**: Mô hình hoạt động hiệu quả nhất khi test nhà đất trong khu vực 3 quận và những tham số được nhập vào tương đối phù hợp với mặt bằng chung")
