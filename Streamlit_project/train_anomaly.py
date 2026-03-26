@@ -62,7 +62,7 @@ X = df_transformed.drop(columns=['gia_ban', 'log_gia_vnd'])
 y = df_transformed['log_gia_vnd']
 
 #TRAINING Anomaly 
-best_model = joblib.load('C:/DL07_Do_An/Streamlit_project/models/xgboost.pkl')
+best_model = joblib.load('Streamlit_project/models/xgboost.pkl')
 y_pred_train = best_model.predict(X) 
 
 detector = AnomalyDetector()
@@ -75,5 +75,5 @@ detector.fit(
     max_price=50_000_000_000,
 )
 
-joblib.dump(detector, "C:/DL07_Do_An/Streamlit_project/models/anomaly_detector.pkl")
+joblib.dump(detector, "Streamlit_project/models/anomaly_detector.pkl")
 print('done')
