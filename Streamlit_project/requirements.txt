@@ -2,7 +2,9 @@ numpy
 pandas
 scikit-learn
 xgboost
-streamlit
+streamlit>=1.30
+altair>=5
 matplotlib
 seaborn
 joblib 
+pyarrow
