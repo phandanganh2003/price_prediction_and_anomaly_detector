@@ -335,7 +335,6 @@ with tab2:
     if st.button("Predict Price"):
         if missing_fields:
             st.error(f"Bạn chưa nhập đầy đủ các trường: {', '.join(missing_fields)}")
-            st.stop()  # ❗ dừng luôn, không chạy model
         else:
             st.write("*Predicted price:*", y_pred)
 
