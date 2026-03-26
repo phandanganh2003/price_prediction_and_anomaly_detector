@@ -339,6 +339,9 @@ with tab2:
 
         st.write("*Predicted price:*", y_pred)
 
+    st.markdown("---")
+    st.write("**Lưu ý**: Mô hình hoạt động hiệu quả nhất khi test nhà đất trong khu vực 3 quận và những tham số được nhập vào tương đối phù hợp với mặt bằng chung")
+
 with tab3:
     st.subheader("Visualization")
     st.image("Streamlit_project/images/bang_thong_ke_processing.png", caption="Bảng thống kê tiền xử lý", use_container_width=True)
